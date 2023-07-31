@@ -8,9 +8,9 @@ const dobDisplay = document.getElementById('dob')
 const topWorkDisplay = document.getElementById('topWork')
 const genresDisplay = document.getElementById('genres')
 
-function authorSearch(){
+async function authorSearch(){
   try{
-    fetch(`https://openlibrary.org/search/authors.json?q=${authorName.value}`)
+    await fetch(`https://openlibrary.org/search/authors.json?q=${authorName.value}`)
     .then((data) => data.json())
     .then( (data) =>{
       authorData = data.docs[0]
