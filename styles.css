@@ -1,0 +1,23 @@
+*{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#authorDisplay{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  height: 60vh;
+}
+
+#name{
+  text-decoration: underline black 1px;
+}
+
+#dob{
+  align-self: center;
+}
+
+#topWork{
+  columns: 2;
+}

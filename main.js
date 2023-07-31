@@ -3,6 +3,11 @@ var authorDisplay = document.getElementById('authorDisplay')
 var authorData = {}
 var authorCode = ''
 
+const nameDisplay = document.getElementById('name')
+const dobDisplay = document.getElementById('dob')
+const topWorkDisplay = document.getElementById('topWork')
+const genresDisplay = document.getElementById('genres')
+
 function authorSearch(){
   try{
     fetch(`https://openlibrary.org/search/authors.json?q=${authorName.value}`)
@@ -14,30 +19,14 @@ function authorSearch(){
   catch(err){
     console.error(err)
   }
-  if(authorData !== {}){
+  if(authorData){
     displayAuhtorData()
   }
 
 }
 
 function displayAuhtorData(){
-  let authorInfoBlock = document.createElement('div')
-  authorInfoBlock.className = 'author-infomation'
-  
-
-  let author = document.createElement('h2');
-  author.innerHTML = authorData.name
-
-  let authorDOB = document.createElement('h4')
-  authorDOB.innerHTML = authorData.birth_date;
-
-  let topWork = document.createElement('h5')
-  topWork.innerHTML = authorData.top_work
-
-  authorInfoBlock.appendChild(author)
-  authorInfoBlock.appendChild(authorDOB)
-  authorInfoBlock.appendChild(topWork)
-  authorDisplay.appendChild(authorInfoBlock)
-
-  //let topSubjectsList  =document.createElement('ul')
+  nameDisplay.innerHTML = authorData.name
+  dobDisplay.innerHTML = authorData.birth_date
+  topWorkDisplay.innerHTML = authorData.top_work
 }
