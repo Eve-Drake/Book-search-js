@@ -1,5 +1,7 @@
 var authorName = document.getElementById('authorName')
-var authorData
+var authorDisplay = document.getElementById('authorDisplay')
+var authorData = {}
+var authorCode = ''
 
 function authorSearch(){
   try{
@@ -12,5 +14,30 @@ function authorSearch(){
   catch(err){
     console.error(err)
   }
-  console.log(authorData)
+  if(authorData !== {}){
+    displayAuhtorData()
+  }
+
+}
+
+function displayAuhtorData(){
+  let authorInfoBlock = document.createElement('div')
+  authorInfoBlock.className = 'author-infomation'
+  
+
+  let author = document.createElement('h2');
+  author.innerHTML = authorData.name
+
+  let authorDOB = document.createElement('h4')
+  authorDOB.innerHTML = authorData.birth_date;
+
+  let topWork = document.createElement('h5')
+  topWork.innerHTML = authorData.top_work
+
+  authorInfoBlock.appendChild(author)
+  authorInfoBlock.appendChild(authorDOB)
+  authorInfoBlock.appendChild(topWork)
+  authorDisplay.appendChild(authorInfoBlock)
+
+  //let topSubjectsList  =document.createElement('ul')
 }
