@@ -1,6 +1,6 @@
 var authorName = document.getElementById('authorName')
 var authorDisplay = document.getElementById('authorDisplay')
-var authorData = {}
+var authorData 
 var authorCode = ''
 
 const nameDisplay = document.getElementById('name')
@@ -23,7 +23,7 @@ async function authorSearch(){
   if(authorData){
     displayAuhtorData()
   }
-  authorName = ''
+  authorName.value = ''
   authorCode = authorData.key
 }
 
@@ -44,4 +44,8 @@ function displayAuhtorData(){
     genre.innerHTML = authorData.top_subjects[i]
     genreList.appendChild(genre)
   }
+
+  let moreInfoButton = document.createElement('button')
+  moreInfoButton.onclick = getMoreInfo()
+  moreInfoButton.innerHTML = ''
 }
