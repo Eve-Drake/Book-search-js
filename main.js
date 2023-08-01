@@ -1,7 +1,9 @@
 var authorName = document.getElementById('authorName');
 var authorDisplay = document.getElementById('authorDisplay');
+var body = document.getElementById('body');
 var authorData;
 var authorCode = '';
+
 
 const nameDisplay = document.getElementById('name');
 const dobDisplay = document.getElementById('dob');
@@ -9,6 +11,7 @@ const topWorkDisplay = document.getElementById('topWork');
 const genresDisplay = document.getElementById('genres');
 
 async function authorSearch(){
+  body.style.backgroundColor =  '#F5F5F5'
   genresDisplay.innerHTML = ''
   try{
     await fetch(`https://openlibrary.org/search/authors.json?q=${authorName.value}`)
@@ -52,26 +55,26 @@ function setGenreStyling(){
   console.log(genres)
   if(genres.includes('fantasy')){
     console.log('fantasy');
+    body.style.fontFamily = "'Great Vibes', cursive"
   }
   else if(genres.includes('science fiction')){
     console.log('sci-fi');
+    body.style.fontFamily = "'Orbitron', sans-serif"
   }
   else if(genres.includes('horror')){
     console.log('horror');
+    body.style.fontFamily = "'Nosifer', cursive"
   }
   else if(genres.includes('romance')){
     console.log('romance');
+    body.style.fontFamily = "'Parisienne', cursive"
   }
-  else if(genres.includes('childrens')){
+  else if(genres.includes('childrens' || 'childrens fiction')){
     console.log('childrens');
-  }
-  else if(genres.includes('fiction')){
-    console.log('fiction');
-  }
-  else if(genres.includes('non-fiction')){
-    console.log('non-fiction');
+    body.style.fontFamily = "'Schoolbell', cursive"
   }
   else{
-    console.log('general');
+    console.log('fiction');
+    body.style.fontFamily = "'Lato', sans-serif;"
   }
 }
