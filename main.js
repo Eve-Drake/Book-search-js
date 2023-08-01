@@ -52,29 +52,34 @@ function displayAuhtorData(){
 
 function setGenreStyling(){
   let genres = authorData.top_subjects.toString().toLowerCase()
-  console.log(genres)
   if(genres.includes('fantasy')){
-    console.log('fantasy');
-    body.style.fontFamily = "'Great Vibes', cursive"
+    body.style.fontFamily = "'Great Vibes', cursive";
+    body.style.backgroundColor = '#cacaca';
+    body.style.color = '#646060'
   }
   else if(genres.includes('science fiction')){
-    console.log('sci-fi');
     body.style.fontFamily = "'Orbitron', sans-serif"
+    body.style.backgroundColor = '#363d52';
+    body.style.color = '#3769ff'
   }
   else if(genres.includes('horror')){
-    console.log('horror');
     body.style.fontFamily = "'Nosifer', cursive"
+    body.style.backgroundColor = '#2c2c2c';
+    body.style.color = '#fc0e0e'
   }
   else if(genres.includes('romance')){
-    console.log('romance');
     body.style.fontFamily = "'Parisienne', cursive"
+    body.style.backgroundColor = '#fad1f1';
+    body.style.color = '#b8070d'
   }
-  else if(genres.includes('childrens' || 'childrens fiction')){
-    console.log('childrens');
+  else if(genres.includes('childrens' || 'childrens fiction'|| 'juvenile')){
     body.style.fontFamily = "'Schoolbell', cursive"
+    body.style.backgroundColor = '#474747k';
+    body.style.color = '#f0f0f0'
   }
   else{
-    console.log('fiction');
     body.style.fontFamily = "'Lato', sans-serif;"
+    body.style.backgroundColor = 'white';
+    body.style.color = 'black'
   }
 }
