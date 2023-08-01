@@ -22,6 +22,7 @@ async function authorSearch(){
   }
   if(authorData){
     displayAuhtorData()
+    setGenreStyling()
   }
   authorName.value = ''
   authorCode = authorData.key
@@ -29,8 +30,8 @@ async function authorSearch(){
 
 function displayAuhtorData(){
   nameDisplay.innerHTML = authorData.name
-  dobDisplay.innerHTML = authorData.birth_date
-  topWorkDisplay.innerHTML = authorData.top_work
+  dobDisplay.innerHTML = `Date of Birth: ${authorData.birth_date}`
+  topWorkDisplay.innerHTML = `Top Work: ${authorData.top_work}`
   
   let genresTitle = document.createElement('h3')
   genresTitle.innerHTML = `Top Genres by ${authorData.name}`
@@ -39,13 +40,14 @@ function displayAuhtorData(){
   genresDisplay.appendChild(genresTitle)
   genresDisplay.appendChild(genreList)
 
-  for(let i = 4; i >= 0; i--){
+  for(let i = 0; i < 5; i++){
     let genre = document.createElement('li')
     genre.innerHTML = authorData.top_subjects[i]
     genreList.appendChild(genre)
   }
+}
 
-  //let moreInfoButton = document.createElement('button')
-  //moreInfoButton.onclick = getMoreInfo()
-  //moreInfoButton.innerHTML = 'More Ifomation'
+function setGenreStyling(){
+  let genres = authorData.top_subjects.toString().toLowerCase()
+  console.log(genres)
 }
