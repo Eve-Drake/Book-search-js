@@ -45,7 +45,7 @@ function displayAuhtorData(){
     genreList.appendChild(genre)
   }
 
-  let moreInfoButton = document.createElement('button')
-  moreInfoButton.onclick = getMoreInfo()
-  moreInfoButton.innerHTML = ''
+  //let moreInfoButton = document.createElement('button')
+  //moreInfoButton.onclick = getMoreInfo()
+  //moreInfoButton.innerHTML = 'More Ifomation'
 }

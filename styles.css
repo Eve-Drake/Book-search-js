@@ -2,6 +2,10 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+#search{
+  text-align: center;
+}
+
 #authorDisplay{
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -28,4 +32,8 @@
 #genres{
   grid-column: 2;
   grid-row: 2;
+}
+
+h1{
+  text-align: center;
 }
