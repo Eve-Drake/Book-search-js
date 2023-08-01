@@ -12,6 +12,7 @@ const genresDisplay = document.getElementById('genres');
 
 async function authorSearch(){
   body.style.backgroundColor =  '#F5F5F5'
+  body.style.fontFamily = "'Lato', sans-serif;"
   genresDisplay.innerHTML = ''
   try{
     await fetch(`https://openlibrary.org/search/authors.json?q=${authorName.value}`)
@@ -26,6 +27,11 @@ async function authorSearch(){
   if(authorData){
     displayAuhtorData();
     setGenreStyling();
+  }
+  else{
+    let notFound = document.createElement('h1')
+    notFound.innerHTML = `Sorry, we couldn't find any data for ${authorName.value}`
+    authorDisplay.appendChild(notFound)
   }
   authorName.value = '';
   authorCode = authorData.key;
