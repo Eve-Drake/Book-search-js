@@ -11,28 +11,37 @@ const topWorkDisplay = document.getElementById('topWork');
 const genresDisplay = document.getElementById('genres');
 
 async function authorSearch(){
+  authorData = {}
   body.style.backgroundColor =  '#F5F5F5'
   body.style.fontFamily = "'Lato', sans-serif;"
   genresDisplay.innerHTML = ''
-  try{
-    await fetch(`https://openlibrary.org/search/authors.json?q=${authorName.value}`)
-    .then((data) => data.json())
-    .then( (data) =>{
-      authorData = data.docs[0];
-    })
-  }
-  catch(err){
-    console.error(err);
-  }
-  if(authorData){
-    displayAuhtorData();
-    setGenreStyling();
+  if(authorName.value){
+    try{
+      await fetch(`https://openlibrary.org/search/authors.json?q=${authorName.value}`)
+      .then((data) => data.json())
+      .then( (data) =>{
+        authorData = data.docs[0];
+      })
+    }
+    catch(err){
+      console.error(err);
+    }
+    if(authorData){
+      displayAuhtorData();
+      setGenreStyling();
+    }
+    else{
+      let notFound = document.createElement('h1')
+      notFound.innerHTML = `Sorry, we couldn't find any data for ${authorName.value}`
+      authorDisplay.appendChild(notFound)
+    }
   }
   else{
-    let notFound = document.createElement('h1')
-    notFound.innerHTML = `Sorry, we couldn't find any data for ${authorName.value}`
-    authorDisplay.appendChild(notFound)
+    let noName = document.createElement('h1')
+    noName.innerHTML = `Please Enter a Name`;
+    authorDisplay.appendChild(noName)
   }
+
   authorName.value = '';
   authorCode = authorData.key;
 }
