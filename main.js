@@ -13,8 +13,8 @@ const genresDisplay = document.getElementById('genres');
 async function authorSearch(){
   authorData = {}
   body.className = 'default'
-  genresDisplay.innerHTML = ''
-  if(authorName.value){
+  reset()
+  if (authorName.value){
     try{
       await fetch(`https://openlibrary.org/search/authors.json?q=${authorName.value}`)
       .then((data) => data.json())
@@ -22,7 +22,7 @@ async function authorSearch(){
         authorData = data.docs[0];
       })
     }
-    catch(err){
+    catch (err){
       console.error(err);
     }
     if(authorData){
@@ -32,13 +32,13 @@ async function authorSearch(){
     else{
       let notFound = document.createElement('h1')
       notFound.innerHTML = `Sorry, we couldn't find any data for ${authorName.value}`
-      authorDisplay.appendChild(notFound)
+      nameDisplay.appendChild(notFound)
     }
   }
   else{
     let noName = document.createElement('h1')
     noName.innerHTML = `Please Enter a Name`;
-    authorDisplay.appendChild(noName)
+    nameDisplay.appendChild(noName)
   }
 
   authorName.value = '';
@@ -84,4 +84,13 @@ function setGenreStyling(){
   else{
     body.className = 'default'
   }
+}
+
+
+function reset(){
+  genresDisplay.innerHTML = ''
+  nameDisplay.innerHTML = ''
+  dobDisplay.innerHTML = ''
+  topWorkDisplay.innerHTML = ''
+
 }
