@@ -12,8 +12,7 @@ const genresDisplay = document.getElementById('genres');
 
 async function authorSearch(){
   authorData = {}
-  body.style.backgroundColor =  '#F5F5F5'
-  body.style.fontFamily = "'Lato', sans-serif;"
+  body.className = 'default'
   genresDisplay.innerHTML = ''
   if(authorName.value){
     try{
@@ -68,33 +67,21 @@ function displayAuhtorData(){
 function setGenreStyling(){
   let genres = authorData.top_subjects.toString().toLowerCase()
   if(genres.includes('fantasy')){
-    body.style.fontFamily = "'Great Vibes', cursive";
-    body.style.backgroundColor = '#cacaca';
-    body.style.color = '#646060'
+    body.className = 'fantasy'
   }
   else if(genres.includes('science fiction')){
-    body.style.fontFamily = "'Orbitron', sans-serif"
-    body.style.backgroundColor = '#363d52';
-    body.style.color = '#3769ff'
+    body.className = 'science-fiction'
   }
   else if(genres.includes('horror')){
-    body.style.fontFamily = "'Nosifer', cursive"
-    body.style.backgroundColor = '#2c2c2c';
-    body.style.color = '#fc0e0e'
+    body.className = 'horror'
   }
   else if(genres.includes('romance')){
-    body.style.fontFamily = "'Parisienne', cursive"
-    body.style.backgroundColor = '#fad1f1';
-    body.style.color = '#b8070d'
+    body.className = 'romance'
   }
-  else if(genres.includes('childrens' || 'childrens fiction'|| 'juvenile')){
-    body.style.fontFamily = "'Schoolbell', cursive"
-    body.style.backgroundColor = '#474747k';
-    body.style.color = '#f0f0f0'
+  else if(genres.includes('childrens' || `children's fiction`|| 'juvenile')){
+    body.className = 'childrens'
   }
   else{
-    body.style.fontFamily = "'Lato', sans-serif;"
-    body.style.backgroundColor = 'white';
-    body.style.color = 'black'
+    body.className = 'default'
   }
 }
