@@ -4,13 +4,20 @@ var body = document.getElementById('body');
 var authorData;
 var authorCode = '';
 
-var bookName = document.getElementById('bookSearch')
-var bookData;
-
 const nameDisplay = document.getElementById('name');
 const dobDisplay = document.getElementById('dob');
 const topWorkDisplay = document.getElementById('topWork');
 const genresDisplay = document.getElementById('genres');
+
+
+var bookName = document.getElementById('bookSearch');
+var bookData;
+
+const titleDisplay = document.getElementById('title');
+const publicationDisplay = document.getElementById('publicationDate');
+const authorDisplay = document.getElementById('author');
+const subjectDisplay = document.getElementById('subjects')
+
 
 async function authorSearch(){
   authorData = {}
@@ -28,7 +35,7 @@ async function authorSearch(){
       console.error(err);
     }
     if(authorData){
-      displayAuhtorData();
+      displayAuthorData();
       setGenreStyling();
     }
     else{
@@ -47,7 +54,7 @@ async function authorSearch(){
   authorCode = authorData.key;
 }
 
-function displayAuhtorData(){
+function displayAuthorData(){
   nameDisplay.innerHTML = authorData.name;
   dobDisplay.innerHTML = `Date of Birth: ${authorData.birth_date}`;
   topWorkDisplay.innerHTML = `Top Work: ${authorData.top_work}`;
@@ -69,30 +76,30 @@ function displayAuhtorData(){
 function setGenreStyling(){
   let genres = authorData.top_subjects.toString().toLowerCase()
   if(genres.includes('fantasy')){
-    body.className = 'fantasy'
+    body.className = 'fantasy';
   }
   else if(genres.includes('science fiction')){
-    body.className = 'science-fiction'
+    body.className = 'science-fiction';
   }
   else if(genres.includes('horror')){
-    body.className = 'horror'
+    body.className = 'horror';
   }
   else if(genres.includes('romance')){
-    body.className = 'romance'
+    body.className = 'romance';
   }
   else if(genres.includes('childrens' || `children's fiction`|| 'juvenile')){
-    body.className = 'childrens'
+    body.className = 'childrens';
   }
   else{
-    body.className = 'default'
+    body.className = 'default';
   }
 }
 
 function reset(){
-  genresDisplay.innerHTML = ''
-  nameDisplay.innerHTML = ''
-  dobDisplay.innerHTML = ''
-  topWorkDisplay.innerHTML = ''
+  genresDisplay.innerHTML = '';
+  nameDisplay.innerHTML = '';
+  dobDisplay.innerHTML = '';
+  topWorkDisplay.innerHTML = '';
 }
 
 async function searchForBook(){
@@ -104,6 +111,14 @@ async function searchForBook(){
     })
   }
   catch(err){
-    console.error(err)
+    console.error(err);
   }
+  displayBookData();
+}
+
+function displayBookData(){
+  titleDisplay.innerHTML = `${bookData.title}`
+  publicationDisplay.innerHTML = `${bookData.first_publish_year}`
+  authorDisplay.innerHTML = `by ${bookData.author_name}`
+  subjectDisplay.innerHTML = `${bookData.subject_facet[0]}`
 }
