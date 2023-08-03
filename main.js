@@ -4,6 +4,8 @@ var body = document.getElementById('body');
 var authorData;
 var authorCode = '';
 
+var bookName = document.getElementById('bookSearch')
+
 
 const nameDisplay = document.getElementById('name');
 const dobDisplay = document.getElementById('dob');
@@ -93,6 +95,6 @@ function reset(){
   topWorkDisplay.innerHTML = ''
 }
 
-function getMoreWorkd(){
-  
+function searchForBook(){
+  console.log(bookName.value)
 }
