@@ -5,7 +5,7 @@ var authorData;
 var authorCode = '';
 
 var bookName = document.getElementById('bookSearch')
-
+var bookData;
 
 const nameDisplay = document.getElementById('name');
 const dobDisplay = document.getElementById('dob');
@@ -95,6 +95,15 @@ function reset(){
   topWorkDisplay.innerHTML = ''
 }
 
-function searchForBook(){
-  console.log(bookName.value)
+async function searchForBook(){
+  try{
+    await fetch(`https://openlibrary.org/search.json?q=${bookName.value}&limit=1`)
+    .then((data) => data.json())
+    .then((data) =>{
+      bookData = data.docs[0]
+    })
+  }
+  catch(err){
+    console.error(err)
+  }
 }
