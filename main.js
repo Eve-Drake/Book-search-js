@@ -86,11 +86,13 @@ function setGenreStyling(){
   }
 }
 
-
 function reset(){
   genresDisplay.innerHTML = ''
   nameDisplay.innerHTML = ''
   dobDisplay.innerHTML = ''
   topWorkDisplay.innerHTML = ''
+}
 
+function getMoreWorkd(){
+  
 }
